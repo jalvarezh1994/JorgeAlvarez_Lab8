@@ -15,7 +15,6 @@ public class Hamadriades extends Hada {
 
     public Hamadriades() {
         this.Salud = 373 + SaludDelArbol;
-        this.Salud = 173;
     }
 
     public float getSaludDelArbol() {

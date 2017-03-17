@@ -652,6 +652,7 @@ public class Principal extends javax.swing.JFrame {
             Hadas.get(pos).setEdad(Integer.parseInt(EdadLamiaTf.getText()));
             ((Lamia) Hadas.get(pos)).setLongitudAleta(Float.parseFloat(LongitudDeAletasLamiaTf.getText()));
             ((Lamia) Hadas.get(pos)).setNumeroDeBranquias(Integer.parseInt(NumeroDeBranquiasLamiaTf.getText()));
+            AgregarLamiaJd.dispose();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -666,7 +667,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-
+        BatallaPb1.setMaximum((int) Hadas.get(BatallaCb1.getSelectedIndex()).getSalud());
+        BatallaPb1.setMaximum((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
+        HiloAtacar hilo1 = new HiloAtacar(
+                Hadas.get(BatallaCb1.getSelectedIndex()), Hadas.get(BatallaCb2.getSelectedIndex()));
+        HiloAtacar hilo2 = new HiloAtacar(
+                Hadas.get(BatallaCb2.getSelectedIndex()), Hadas.get(BatallaCb1.getSelectedIndex()));
+        hilo1.start();
+        hilo2.start();
+        while (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud() > 0
+                && Hadas.get(BatallaCb2.getSelectedIndex()).getSalud() > 0) {
+            BatallaPb1.setValue((int) Hadas.get(BatallaCb1.getSelectedIndex()).getSalud());
+            BatallaPb2.setValue((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void PrincipalTpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PrincipalTpStateChanged
@@ -678,7 +691,7 @@ public class Principal extends javax.swing.JFrame {
                         "Tipo de hada", "Nombre", "Altura", "Edad", "Salud", "Poder"
                     }
             ));
-            DefaultTableModel modelo = new DefaultTableModel();
+            DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
             for (int i = 0; i < Hadas.size(); i++) {
                 Object[] fila = {
                     Hadas.get(i).getClass(),
@@ -688,16 +701,19 @@ public class Principal extends javax.swing.JFrame {
                     Hadas.get(i).getSalud(),
                     Hadas.get(i).getPoder()
                 };
+                modelo.addRow(fila);
             }
             ListarTb.setModel(modelo);
         }
-        if (PrincipalTp.getSelectedIndex()==3) {
-            DefaultComboBoxModel cb1=new DefaultComboBoxModel();
-            DefaultComboBoxModel cb2=new DefaultComboBoxModel();
+        if (PrincipalTp.getSelectedIndex() == 3) {
+            DefaultComboBoxModel cb1 = new DefaultComboBoxModel();
+            DefaultComboBoxModel cb2 = new DefaultComboBoxModel();
             for (int i = 0; i < Hadas.size(); i++) {
                 cb1.addElement(Hadas.get(i));
                 cb2.addElement(Hadas.get(i));
             }
+            BatallaCb1.setModel(cb1);
+            BatallaCb2.setModel(cb2);
         }
     }//GEN-LAST:event_PrincipalTpStateChanged
 
@@ -712,7 +728,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
