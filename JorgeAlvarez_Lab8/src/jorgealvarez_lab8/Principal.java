@@ -91,6 +91,9 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ListarTb = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        ModificarCb = new javax.swing.JComboBox<>();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         BatallaCb1 = new javax.swing.JComboBox<>();
         BatallaCb2 = new javax.swing.JComboBox<>();
@@ -243,6 +246,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel14.setText("Altura");
 
         jButton9.setText("Ok");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Edad");
 
@@ -307,6 +315,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel17.setText("Altura");
 
         jButton10.setText("Ok");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Edad");
 
@@ -508,15 +521,44 @@ public class Principal extends javax.swing.JFrame {
 
         PrincipalTp.addTab("Listar", jPanel2);
 
+        ModificarCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton11.setText("Eliminar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Modificar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ModificarCb, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton12)
+                .addGap(18, 18, 18)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(288, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ModificarCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12)
+                    .addComponent(jButton11))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         PrincipalTp.addTab("Modificar", jPanel3);
@@ -741,7 +783,7 @@ public class Principal extends javax.swing.JFrame {
         HiloAtacar hilo2 = new HiloAtacar(
                 Hadas.get(BatallaCb2.getSelectedIndex()), Hadas.get(BatallaCb1.getSelectedIndex()));
         HiloPb hilo3 = new HiloPb(Hadas.get(BatallaCb1.getSelectedIndex()), Hadas.get(BatallaCb2.getSelectedIndex()),
-                 BatallaPb1, BatallaPb2);
+                BatallaPb1, BatallaPb2);
         hilo1.start();
         hilo2.start();
         hilo3.start();
@@ -769,6 +811,13 @@ public class Principal extends javax.swing.JFrame {
                 modelo.addRow(fila);
             }
             ListarTb.setModel(modelo);
+        }
+        if (PrincipalTp.getSelectedIndex() == 2) {
+            DefaultComboBoxModel cb1 = new DefaultComboBoxModel();
+            for (int i = 0; i < Hadas.size(); i++) {
+                cb1.addElement(Hadas.get(i));
+            }
+            ModificarCb.setModel(cb1);
         }
         if (PrincipalTp.getSelectedIndex() == 3) {
             DefaultComboBoxModel cb1 = new DefaultComboBoxModel();
@@ -805,6 +854,60 @@ public class Principal extends javax.swing.JFrame {
         About.setVisible(true);
         About.pack();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Hadas.add(new Silfides());
+            int pos = Hadas.size() - 1;
+            Hadas.get(pos).setNombre(NombreSilfidesTf.getText());
+            Hadas.get(pos).setAltura(Float.parseFloat(AlturaSilfidesTf.getText()));
+            Hadas.get(pos).setEdad(Integer.parseInt(EdadSilfidesTf.getText()));
+            ((Silfides) Hadas.get(pos)).setCantidadDeAlas(Integer.parseInt(CantdiadDeAlasTf.getText()));
+            AgregarSilfidesJd.dispose();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Hadas.add(new Salamandra());
+            int pos = Hadas.size() - 1;
+            Hadas.get(pos).setNombre(NombreSalamandraTf.getText());
+            Hadas.get(pos).setAltura(Float.parseFloat(AlturaSalamandraTf.getText()));
+            Hadas.get(pos).setEdad(Integer.parseInt(EdadSalamandraTf.getText()));
+            ((Salamandra) Hadas.get(pos)).setCantidadDeAlas(Integer.parseInt(CantdiadDeAlasTf.getText()));
+            AgregarSalamandraJd.dispose();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        Hadas.remove(ModificarCb.getSelectedIndex());
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        modificar=1;
+        if (Hadas.get(ModificarCb.getSelectedIndex())instanceof Lamia) {
+            AgregarLamiaJd.setVisible(true);
+            AgregarLamiaJd.pack();
+        }
+        if (Hadas.get(ModificarCb.getSelectedIndex())instanceof Hamadriades) {
+            AgregarHamadriadesJd.setVisible(true);
+            AgregarHamadriadesJd.pack();
+        }
+        if (Hadas.get(ModificarCb.getSelectedIndex())instanceof Silfides) {
+            AgregarSilfidesJd.setVisible(true);
+            AgregarSilfidesJd.pack();
+        }
+        if (Hadas.get(ModificarCb.getSelectedIndex())instanceof Salamandra) {
+            AgregarSalamandraJd.setVisible(true);
+            AgregarSalamandraJd.pack();
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -863,6 +966,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField EdadSilfidesTf;
     private javax.swing.JTable ListarTb;
     private javax.swing.JTextField LongitudDeAletasLamiaTf;
+    private javax.swing.JComboBox<String> ModificarCb;
     private javax.swing.JTextField NombreHamadriadesTf;
     private javax.swing.JTextField NombreLamiaTf;
     private javax.swing.JTextField NombreSalamandraTf;
@@ -871,6 +975,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane PrincipalTp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
