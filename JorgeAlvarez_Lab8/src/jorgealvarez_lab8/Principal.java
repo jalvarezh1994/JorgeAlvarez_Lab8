@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import jdk.jfr.events.FileReadEvent;
 
@@ -601,10 +602,12 @@ public class Principal extends javax.swing.JFrame {
             JFileChooser jfc = new JFileChooser("./");
             int seleccion = jfc.showSaveDialog(this);
             if (seleccion == JFileChooser.APPROVE_OPTION) {
+                admHadas.setListaHadas(Hadas);
                 admHadas.setArchivo(jfc.getSelectedFile());
                 admHadas.escribirArchivo();
             }
         } else {
+            admHadas.setListaHadas(Hadas);
             admHadas.escribirArchivo();
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -614,6 +617,7 @@ public class Principal extends javax.swing.JFrame {
         JFileChooser jfc = new JFileChooser("./");
         int seleccion = jfc.showSaveDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
+            admHadas.setListaHadas(Hadas);
             admHadas.setArchivo(jfc.getSelectedFile());
             admHadas.escribirArchivo();
         }
@@ -679,6 +683,14 @@ public class Principal extends javax.swing.JFrame {
                 && Hadas.get(BatallaCb2.getSelectedIndex()).getSalud() > 0) {
             BatallaPb1.setValue((int) Hadas.get(BatallaCb1.getSelectedIndex()).getSalud());
             BatallaPb2.setValue((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
+        }
+        if (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud() > 0) {
+            JOptionPane.showMessageDialog(this, "Ganó el Hada 1");
+        } else if (Hadas.get(BatallaCb2.getSelectedIndex()).getSalud() > 0) {
+            JOptionPane.showMessageDialog(this, "Ganó el Hada 2");
+        } else if (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud()
+                == Hadas.get(BatallaCb2.getSelectedIndex()).getSalud()) {
+            JOptionPane.showMessageDialog(this, "Hubo un empate");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
