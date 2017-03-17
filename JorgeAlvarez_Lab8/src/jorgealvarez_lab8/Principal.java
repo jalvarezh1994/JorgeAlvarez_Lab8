@@ -75,6 +75,11 @@ public class Principal extends javax.swing.JFrame {
         EdadSalamandraTf = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         CantidadDeAlasSalamandraTf = new javax.swing.JTextField();
+        About = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         PrincipalTp = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -183,6 +188,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel11.setText("Altura");
 
         jButton8.setText("Ok");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Edad");
 
@@ -347,6 +357,52 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(CantidadDeAlasSalamandraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton10)
+                .addContainerGap())
+        );
+
+        jLabel19.setText("Este es el laboratorio 8");
+
+        jLabel20.setText("Hecho por Jorge Álvarez");
+
+        jLabel21.setText("17/3/2017");
+
+        jButton7.setText("OK");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AboutLayout = new javax.swing.GroupLayout(About.getContentPane());
+        About.getContentPane().setLayout(AboutLayout);
+        AboutLayout.setHorizontalGroup(
+            AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AboutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AboutLayout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addComponent(jLabel21))
+                    .addGroup(AboutLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AboutLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        AboutLayout.setVerticalGroup(
+            AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AboutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton7)
                 .addContainerGap())
         );
 
@@ -550,6 +606,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("About");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
@@ -672,26 +733,18 @@ public class Principal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         BatallaPb1.setMaximum((int) Hadas.get(BatallaCb1.getSelectedIndex()).getSalud());
-        BatallaPb1.setMaximum((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
+        BatallaPb2.setMaximum((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
+        BatallaPb1.setValue(BatallaPb1.getMaximum());
+        BatallaPb2.setValue(BatallaPb2.getMaximum());
         HiloAtacar hilo1 = new HiloAtacar(
                 Hadas.get(BatallaCb1.getSelectedIndex()), Hadas.get(BatallaCb2.getSelectedIndex()));
         HiloAtacar hilo2 = new HiloAtacar(
                 Hadas.get(BatallaCb2.getSelectedIndex()), Hadas.get(BatallaCb1.getSelectedIndex()));
+        HiloPb hilo3 = new HiloPb(Hadas.get(BatallaCb1.getSelectedIndex()), Hadas.get(BatallaCb2.getSelectedIndex()),
+                 BatallaPb1, BatallaPb2);
         hilo1.start();
         hilo2.start();
-        while (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud() > 0
-                && Hadas.get(BatallaCb2.getSelectedIndex()).getSalud() > 0) {
-            BatallaPb1.setValue((int) Hadas.get(BatallaCb1.getSelectedIndex()).getSalud());
-            BatallaPb2.setValue((int) Hadas.get(BatallaCb2.getSelectedIndex()).getSalud());
-        }
-        if (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud() > 0) {
-            JOptionPane.showMessageDialog(this, "Ganó el Hada 1");
-        } else if (Hadas.get(BatallaCb2.getSelectedIndex()).getSalud() > 0) {
-            JOptionPane.showMessageDialog(this, "Ganó el Hada 2");
-        } else if (Hadas.get(BatallaCb1.getSelectedIndex()).getSalud()
-                == Hadas.get(BatallaCb2.getSelectedIndex()).getSalud()) {
-            JOptionPane.showMessageDialog(this, "Hubo un empate");
-        }
+        hilo3.start();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void PrincipalTpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PrincipalTpStateChanged
@@ -729,6 +782,30 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PrincipalTpStateChanged
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Hadas.add(new Hamadriades());
+            int pos = Hadas.size() - 1;
+            Hadas.get(pos).setNombre(NombreHamadriadesTf.getText());
+            Hadas.get(pos).setAltura(Float.parseFloat(AlturaHamadriadesTf.getText()));
+            Hadas.get(pos).setEdad(Integer.parseInt(EdadHamadriadesTf.getText()));
+            AgregarHamadriadesJd.dispose();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        About.dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        About.setVisible(true);
+        About.pack();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -765,6 +842,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog About;
     private javax.swing.JDialog AgregarHamadriadesJd;
     private javax.swing.JDialog AgregarLamiaJd;
     private javax.swing.JDialog AgregarSalamandraJd;
@@ -798,6 +876,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -810,7 +889,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

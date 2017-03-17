@@ -13,7 +13,6 @@ public class Lamia extends Hada {
 
     private float LongitudAleta;
     private int NumeroDeBranquias;
-
     public Lamia() {
         this.Salud = 475;
         this.Poder = 57;
