@@ -9,12 +9,13 @@ package jorgealvarez_lab8;
  *
  * @author ofici
  */
-public class Salamandra extends Hada{
+public class Salamandra extends Hada {
+
     private int CantidadDeAlas;
 
     public Salamandra() {
-        this.Salud=683;
-        this.Poder=71;
+        this.Salud = 683;
+        this.Poder = 71;
     }
 
     public Salamandra(int CantidadDeAlas) {
@@ -30,15 +31,25 @@ public class Salamandra extends Hada{
         super(Nombre, Altura, Edad, Poder);
         this.CantidadDeAlas = CantidadDeAlas;
     }
-    
+
+    public int getCantidadDeAlas() {
+        return CantidadDeAlas;
+    }
+
+    public void setCantidadDeAlas(int CantidadDeAlas) {
+        if (CantidadDeAlas>=16) {
+            this.CantidadDeAlas = CantidadDeAlas;
+        }
+    }
+
     @Override
     public Hada ataque(Hada Enemigo) {
         if (Enemigo instanceof Hamadriades) {
-            Enemigo.setSalud((float) (Enemigo.getSalud() - this.Poder*1.37));
-        }else{
+            Enemigo.setSalud((float) (Enemigo.getSalud() - this.Poder * 1.37));
+        } else {
             Enemigo.setSalud((float) (Enemigo.getSalud() - this.Poder));
         }
         return Enemigo;
     }
-    
+
 }

@@ -7,7 +7,9 @@ package jorgealvarez_lab8;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
 import jdk.jfr.events.FileReadEvent;
 
 /**
@@ -33,26 +35,46 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         AgregarLamiaJd = new javax.swing.JDialog();
-        jTextField1 = new javax.swing.JTextField();
+        NombreLamiaTf = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        AlturaLamiaTf = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        EdadLamiaTf = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        LongitudDeAletasLamiaTf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        NumeroDeBranquiasLamiaTf = new javax.swing.JTextField();
         AgregarHamadriadesJd = new javax.swing.JDialog();
-        jTextField8 = new javax.swing.JTextField();
+        NombreHamadriadesTf = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        AlturaHamadriadesTf = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        EdadHamadriadesTf = new javax.swing.JTextField();
+        AgregarSilfidesJd = new javax.swing.JDialog();
+        NombreSilfidesTf = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        AlturaSilfidesTf = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        EdadSilfidesTf = new javax.swing.JTextField();
+        CantdiadDeAlasTf = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        AgregarSalamandraJd = new javax.swing.JDialog();
+        NombreSalamandraTf = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        AlturaSalamandraTf = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        EdadSalamandraTf = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        CantidadDeAlasSalamandraTf = new javax.swing.JTextField();
+        PrincipalTp = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -60,14 +82,16 @@ public class Principal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListarTb = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        BatallaCb1 = new javax.swing.JComboBox<>();
+        BatallaCb2 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
+        BatallaPb1 = new javax.swing.JProgressBar();
+        BatallaPb2 = new javax.swing.JProgressBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -76,11 +100,22 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
+        NombreLamiaTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreLamiaTfActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Nombre");
 
         jLabel4.setText("Altura");
 
         jButton6.setText("Ok");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Edad");
 
@@ -107,11 +142,11 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))))
+                            .addComponent(NombreLamiaTf)
+                            .addComponent(AlturaLamiaTf)
+                            .addComponent(EdadLamiaTf)
+                            .addComponent(LongitudDeAletasLamiaTf)
+                            .addComponent(NumeroDeBranquiasLamiaTf, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         AgregarLamiaJdLayout.setVerticalGroup(
@@ -119,24 +154,24 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(AgregarLamiaJdLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombreLamiaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AlturaLamiaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EdadLamiaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LongitudDeAletasLamiaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarLamiaJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NumeroDeBranquiasLamiaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addContainerGap())
@@ -167,9 +202,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addGroup(AgregarHamadriadesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10))))
+                            .addComponent(NombreHamadriadesTf, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(AlturaHamadriadesTf)
+                            .addComponent(EdadHamadriadesTf))))
                 .addContainerGap())
         );
         AgregarHamadriadesJdLayout.setVerticalGroup(
@@ -177,22 +212,150 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(AgregarHamadriadesJdLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AgregarHamadriadesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombreHamadriadesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarHamadriadesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AlturaHamadriadesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarHamadriadesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EdadHamadriadesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton8)
                 .addContainerGap())
         );
 
+        jLabel13.setText("Nombre");
+
+        jLabel14.setText("Altura");
+
+        jButton9.setText("Ok");
+
+        jLabel15.setText("Edad");
+
+        EdadSilfidesTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EdadSilfidesTfActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Cantidad de Alas");
+
+        javax.swing.GroupLayout AgregarSilfidesJdLayout = new javax.swing.GroupLayout(AgregarSilfidesJd.getContentPane());
+        AgregarSilfidesJd.getContentPane().setLayout(AgregarSilfidesJdLayout);
+        AgregarSilfidesJdLayout.setHorizontalGroup(
+            AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AgregarSilfidesJdLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarSilfidesJdLayout.createSequentialGroup()
+                        .addGap(0, 216, Short.MAX_VALUE)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarSilfidesJdLayout.createSequentialGroup()
+                        .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CantdiadDeAlasTf)
+                            .addComponent(NombreSilfidesTf, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(AlturaSilfidesTf)
+                            .addComponent(EdadSilfidesTf))))
+                .addContainerGap())
+        );
+        AgregarSilfidesJdLayout.setVerticalGroup(
+            AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AgregarSilfidesJdLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombreSilfidesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(AlturaSilfidesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(EdadSilfidesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSilfidesJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CantdiadDeAlasTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addContainerGap())
+        );
+
+        jLabel16.setText("Nombre");
+
+        jLabel17.setText("Altura");
+
+        jButton10.setText("Ok");
+
+        jLabel18.setText("Edad");
+
+        jLabel6.setText("Cantidad de alas");
+
+        javax.swing.GroupLayout AgregarSalamandraJdLayout = new javax.swing.GroupLayout(AgregarSalamandraJd.getContentPane());
+        AgregarSalamandraJd.getContentPane().setLayout(AgregarSalamandraJdLayout);
+        AgregarSalamandraJdLayout.setHorizontalGroup(
+            AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AgregarSalamandraJdLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarSalamandraJdLayout.createSequentialGroup()
+                        .addGap(0, 240, Short.MAX_VALUE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarSalamandraJdLayout.createSequentialGroup()
+                        .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NombreSalamandraTf, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(AlturaSalamandraTf)
+                            .addComponent(EdadSalamandraTf)
+                            .addComponent(CantidadDeAlasSalamandraTf))))
+                .addContainerGap())
+        );
+        AgregarSalamandraJdLayout.setVerticalGroup(
+            AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AgregarSalamandraJdLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombreSalamandraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(AlturaSalamandraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(EdadSalamandraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarSalamandraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(CantidadDeAlasSalamandraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        PrincipalTp.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                PrincipalTpStateChanged(evt);
+            }
+        });
 
         jButton1.setText("Lamia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,10 +367,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Hada");
 
         jButton2.setText("Hamadríades");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Sílfides");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Salamandra");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -239,23 +417,39 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Agregar", jPanel1);
+        PrincipalTp.addTab("Agregar", jPanel1);
+
+        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Altura", "Edad", "Salud", "Poder"
+            }
+        ));
+        jScrollPane1.setViewportView(ListarTb);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Listar", jPanel2);
+        PrincipalTp.addTab("Listar", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -265,18 +459,23 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Modificar", jPanel3);
+        PrincipalTp.addTab("Modificar", jPanel3);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BatallaCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BatallaCb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setText("VS.");
 
         jButton5.setText("Iniciar Batalla");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -285,14 +484,14 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BatallaPb1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(BatallaCb1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(55, 55, 55)
                 .addComponent(jLabel2)
                 .addGap(62, 62, 62)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BatallaPb2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(BatallaCb2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -302,18 +501,18 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BatallaCb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BatallaCb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jButton5))
                 .addGap(85, 85, 85)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(244, Short.MAX_VALUE))
+                    .addComponent(BatallaPb1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(BatallaPb2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Batalla", jPanel4);
+        PrincipalTp.addTab("Batalla", jPanel4);
 
         jMenu1.setText("Archivo");
 
@@ -342,6 +541,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Salir");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("About");
@@ -357,14 +561,14 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(PrincipalTp)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(PrincipalTp)
                 .addContainerGap())
         );
 
@@ -415,6 +619,88 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        AgregarHamadriadesJd.setVisible(true);
+        AgregarHamadriadesJd.pack();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        AgregarSilfidesJd.setVisible(true);
+        AgregarSilfidesJd.pack();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        AgregarSalamandraJd.setVisible(true);
+        AgregarSalamandraJd.pack();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Hadas.add(new Lamia());
+            int pos = Hadas.size() - 1;
+            Hadas.get(pos).setNombre(NombreLamiaTf.getText());
+            Hadas.get(pos).setAltura(Float.parseFloat(AlturaLamiaTf.getText()));
+            Hadas.get(pos).setEdad(Integer.parseInt(EdadLamiaTf.getText()));
+            ((Lamia) Hadas.get(pos)).setLongitudAleta(Float.parseFloat(LongitudDeAletasLamiaTf.getText()));
+            ((Lamia) Hadas.get(pos)).setNumeroDeBranquias(Integer.parseInt(NumeroDeBranquiasLamiaTf.getText()));
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void NombreLamiaTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreLamiaTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreLamiaTfActionPerformed
+
+    private void EdadSilfidesTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdadSilfidesTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EdadSilfidesTfActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void PrincipalTpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PrincipalTpStateChanged
+        // TODO add your handling code here:
+        if (PrincipalTp.getSelectedIndex() == 1) {
+            ListarTb.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Tipo de hada", "Nombre", "Altura", "Edad", "Salud", "Poder"
+                    }
+            ));
+            DefaultTableModel modelo = new DefaultTableModel();
+            for (int i = 0; i < Hadas.size(); i++) {
+                Object[] fila = {
+                    Hadas.get(i).getClass(),
+                    Hadas.get(i).getNombre(),
+                    Hadas.get(i).getAltura(),
+                    Hadas.get(i).getEdad(),
+                    Hadas.get(i).getSalud(),
+                    Hadas.get(i).getPoder()
+                };
+            }
+            ListarTb.setModel(modelo);
+        }
+        if (PrincipalTp.getSelectedIndex()==3) {
+            DefaultComboBoxModel cb1=new DefaultComboBoxModel();
+            DefaultComboBoxModel cb2=new DefaultComboBoxModel();
+            for (int i = 0; i < Hadas.size(); i++) {
+                cb1.addElement(Hadas.get(i));
+                cb2.addElement(Hadas.get(i));
+            }
+        }
+    }//GEN-LAST:event_PrincipalTpStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -453,22 +739,54 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AgregarHamadriadesJd;
     private javax.swing.JDialog AgregarLamiaJd;
+    private javax.swing.JDialog AgregarSalamandraJd;
+    private javax.swing.JDialog AgregarSilfidesJd;
+    private javax.swing.JTextField AlturaHamadriadesTf;
+    private javax.swing.JTextField AlturaLamiaTf;
+    private javax.swing.JTextField AlturaSalamandraTf;
+    private javax.swing.JTextField AlturaSilfidesTf;
+    private javax.swing.JComboBox<String> BatallaCb1;
+    private javax.swing.JComboBox<String> BatallaCb2;
+    private javax.swing.JProgressBar BatallaPb1;
+    private javax.swing.JProgressBar BatallaPb2;
+    private javax.swing.JTextField CantdiadDeAlasTf;
+    private javax.swing.JTextField CantidadDeAlasSalamandraTf;
+    private javax.swing.JTextField EdadHamadriadesTf;
+    private javax.swing.JTextField EdadLamiaTf;
+    private javax.swing.JTextField EdadSalamandraTf;
+    private javax.swing.JTextField EdadSilfidesTf;
+    private javax.swing.JTable ListarTb;
+    private javax.swing.JTextField LongitudDeAletasLamiaTf;
+    private javax.swing.JTextField NombreHamadriadesTf;
+    private javax.swing.JTextField NombreLamiaTf;
+    private javax.swing.JTextField NombreSalamandraTf;
+    private javax.swing.JTextField NombreSilfidesTf;
+    private javax.swing.JTextField NumeroDeBranquiasLamiaTf;
+    private javax.swing.JTabbedPane PrincipalTp;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -483,19 +801,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-    static ArrayList Hadas = new ArrayList();
+    static ArrayList<Hada> Hadas = new ArrayList();
     static AdminHadas admHadas = new AdminHadas();
-    static int modificar=0;
+    static int modificar = 0;
 }

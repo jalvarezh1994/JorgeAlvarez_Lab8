@@ -79,6 +79,7 @@ public abstract class Hada implements Serializable {
     public void setSalud(float Salud) {
         this.Salud = Salud;
     }
+    
 
     public abstract Hada ataque(Hada Enemigo);
 
